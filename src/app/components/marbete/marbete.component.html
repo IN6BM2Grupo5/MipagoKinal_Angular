@@ -1,0 +1,129 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+
+<app-navbar></app-navbar>
+
+<section>
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col col-lg-8 mb-8 mb-lg-0">
+        <div class="card mb-1 carta" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="../../../assets/img/logo.jpg"
+                alt="Avatar" class="img-fluid my-5" style="width: 145px;" />
+              <h5>jsolis-2020148</h5>
+              <p>Alumno</p>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Generar Marbete</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Modelo del vehículo:</h6>
+                    <p class="text-muted">Bombolbi</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>No. de Placa:</h6>
+                    <p class="text-muted">JADH234</p>
+                  </div>
+                </div><br>
+                <h6>Opciones</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Datos del vehículo:</h6>
+                    <button type="button" class="btn btn-warning margin-left letras"  type="button" data-bs-toggle="modal" data-bs-target="#modalEditarVehiculo"
+                    aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                    Editar
+                  </button>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Marbete:</h6>
+                    <button type="button" class="btn btn-warning margin-left letras"  type="button" data-bs-toggle="modal" data-bs-target="#modalConfirmar"
+                    aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                      <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    Generar
+                  </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-light text-center text-lg-start foot">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: #004A98; color:#fff">
+    © 2022 Copyright: Grupo Kinal
+  </div>
+  <!-- Copyright -->
+</footer>
+
+<!-- Modal Editar Vehiculo -->
+<div class="modal fade" id="modalEditarVehiculo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-contenido">
+      <div class="modal-header modal-titulo">
+        <h4 class="modal-title letras titulo" id="exampleModalLabel">Editar Vehículo</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inputModelo" class="form-label letras">Modelo del Vehículo</label>
+            <input type="text" class="form-control letras" id="inputModelo" name="modelo" #modelo=""  autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputPlaca" class="form-label letras">Número de Placa</label>
+            <input type="text" class="form-control letras" id="inputPlaca" name="placa" #placa=""  autocomplete="off" required>
+          </div>
+          <br>
+        </form>
+      </div>
+      <div class="modal-footer modal-partebaja">
+        <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Confirmacion -->
+<div class="modal fade" id="modalConfirmar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content fondo2">
+      <div class="modal-header encabezado">
+        <h4 class="modal-title titulo" ><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-exclamation-octagon-fill" viewBox="0 0 16 16">
+          <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </svg> Atención</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body image">
+        <img class="image" src="../../../assets/img/marbete.png">
+      </div>
+      <div class="modal-body texto">
+        Estás apunto de generar un marbete.
+      </div>
+      <div class="modal-body texto2">
+        ¿Estás seguro?
+      </div>
+      <div class="modal-footer bajo">
+        <button type="button" class="btn btn-danger boton2" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary boton3">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>

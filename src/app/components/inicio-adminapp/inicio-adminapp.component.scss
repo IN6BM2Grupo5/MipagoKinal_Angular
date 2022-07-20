@@ -1,0 +1,184 @@
+
+*{
+  font-family: 'League Spartan', sans-serif;
+}
+
+body{
+  background-color: #f4f5f7;
+  background-image: url(../../../assets/img/fondogeneral.png);
+}
+
+.header{
+    background-color: #004A98;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 105px;
+    padding: 5px 10%;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img{
+    height: 80px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.header .nav-links{
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 38px;
+}
+
+.header .nav-links{
+    transform: scale(1.1);
+}
+
+.header .nav-links{
+    font-size: 900;
+    color: #eceff1;
+    text-decoration: none;
+}
+
+.header .btn button{
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+    background-color: #e2f1f8;
+    color: #ffbc0e;
+    transform: scale(1.1);
+}
+
+.header .nac{
+  color: #ffbc0e;
+}
+
+.subtitulo{
+  font-size: 25px;
+}
+
+.page-header {
+  background-image: linear-gradient(to right, #f7951e81, #dbb30083), url("../../../assets/img/fonban.png");
+  position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.page-title { font-size: 70px; line-height: 1; color: rgb(0, 0, 0); font-weight: 600; text-align: center;  font-family: 'Saira Extra Condensed', sans-serif;}
+
+.card {
+	border-radius: 4px;
+	box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.185), 0 1px 2px 0 rgba(0, 0, 0, 0.466);
+	transition: all .2s ease;
+  background: linear-gradient(77deg, rgb(255, 255, 255) 13%, rgb(255, 255, 255) 100%, rgb(255, 255, 255) 100%);
+
+	position: relative;
+	overflow: hidden;
+
+	&:hover, &.hover {
+		transform: translateY(-4px);
+		box-shadow: 0 4px 25px 0 rgba(0,0,0,.3), 0 0 1px 0 rgba(0,0,0,.25);
+
+		& .card-content {
+			box-shadow: inset 0 3px 0 0 #FFD651;
+			border-color: #FFD651;
+		}
+
+		& .card-img .overlay {
+			background-color: rgba(0, 20, 66, 0.712);
+			transition: opacity .2s ease;
+			opacity: 1;
+		}
+	}
+
+	&-img {
+		position: relative;
+		height: 224px;
+		width: 100%;
+		transition: opacity .2s ease;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		& .overlay {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			opacity: 0;
+
+			& .overlay-content {
+				line-height: 224px;
+				width: 100%;
+				text-align: center;
+				color: #fff;
+
+			}
+		}
+	}
+
+	&-content {
+    width: 100%;
+    min-height: 104px;
+    background: rgb(255, 255, 255);
+    background: -webkit-linear-gradient(top left, rgb(255, 255, 255), rgb(255, 255, 255));
+    border-top: 1px solid #E9E9EB;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+		padding: 1rem 2rem;
+		transition: all .2s ease;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+		& h2, a h2 {
+			font-size: 25px;
+			font-weight: 500;
+      color: #000;
+		}
+
+		& p, a p {
+			font-size: 15px;
+			font-weight: 400;
+			color: rgba(32, 41, 28, .8);
+      color: #000;
+		}
+	}
+}
+
+
+.margin-left{
+  margin-left: 10px !important;
+}
+
+.centro {
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.foot{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+
