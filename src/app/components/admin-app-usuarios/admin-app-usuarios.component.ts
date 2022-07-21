@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 export class AdminAppUsuariosComponent implements OnInit {
   public usuarioModel: usuarios;
   public UsuariosModelGet: usuarios;
+  public UsuariosModelPut: usuarios;
+  public idEliminar;
 
   constructor(
     private _UsuariosService: UsuariosService
@@ -33,7 +35,26 @@ export class AdminAppUsuariosComponent implements OnInit {
         fechaInicio: "",
         fechaFin: ""
       }]
-      )
+      ),
+      this.UsuariosModelPut = new usuarios(
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        0,
+        0,
+        [{
+          vehiculo: "",
+          placas: "",
+          modelo:"",
+          fechaInicio: "",
+          fechaFin: ""
+        }]
+        )
    }
 
   getUsuarios(){
@@ -54,7 +75,7 @@ export class AdminAppUsuariosComponent implements OnInit {
   }
 
   registrar(addUsuarioForm){
-    this._UsuariosService.agregarAdmin(this.usuarioModel, this._UsuariosService.obtenerToken()).subscribe(
+    this._UsuariosService.agregarAlumno(this.usuarioModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getUsuarios()
@@ -62,7 +83,46 @@ export class AdminAppUsuariosComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Operación exitosa',
-          text: "Admin de Hotel creado exitosamente"
+          text: "Alumno creado exitosamente"
+        })
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+
+  getUsuariosId(idUsuario){
+    this._UsuariosService.obtenerUsuariosId(idUsuario, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        this.UsuariosModelPut = response.usuario;
+        console.log(this.UsuariosModelPut )
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+  editar(editarUsuarioForm){
+    this._UsuariosService.editarUsuario(this.UsuariosModelPut, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getUsuarios()
+        editarUsuarioForm.reset()
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "Alumno editado exitosamente"
         })
       },
       (error)=>{
