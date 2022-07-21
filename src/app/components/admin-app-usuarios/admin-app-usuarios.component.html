@@ -40,7 +40,7 @@
               <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
               <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
             </svg>
-            Agregar usuario
+            Agregar
           </button>
         </div>
       </div>
@@ -50,7 +50,7 @@
           <table class="table table-primary table-striped">
             <thead>
               <tr>
-                <th scope="col" class="letras">#</th>
+                <th scope="col" class="letras carnet">Carnet</th>
                 <th scope="col" class="letras">Nombres</th>
                 <th scope="col" class="letras">Apellidos</th>
                 <th scope="col" class="letras">Correo Estudiantil</th>
@@ -60,7 +60,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row" class="letras">1</th>
+                <td scope="row" class="letras carnet">2020148</td>
                 <td class="letras">Juan Diego</td>
                 <td class="letras">Solís Martínez</td>
                 <td class="letras">jsolis-2020148@kinal.edu.gt</td>
@@ -115,6 +115,10 @@
             <input type="text" class="form-control letras" id="inputApellidos" name="apellidos" #apellidos="" autocomplete="off" required>
           </div>
           <div class="mb-3">
+            <label for="inputCarnet" class="form-label letras">Número de Carnet</label>
+            <input type="number" min="0" class="form-control letras" id="inputCarnet" name="carnet" #carnet="" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
             <label for="inputCorreo" class="form-label letras">Correo Estudiantil</label>
             <input type="email" class="form-control letras" id="inputCorreo" name="correo" #correo="" autocomplete="off" required>
           </div>
@@ -151,6 +155,10 @@
           <div class="mb-3">
             <label for="inputApellidos" class="form-label letras">Apellidos</label>
             <input type="text" class="form-control letras" id="inputApellidos" name="apellidos" #apellidos=""  autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputCarnet" class="form-label letras">Número de Carnet</label>
+            <input type="number" min="0" class="form-control letras" id="inputCarnet" name="carnet" #carnet="" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputCorreo" class="form-label letras">Correo Estudiantil</label>
