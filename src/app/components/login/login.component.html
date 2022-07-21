@@ -32,12 +32,12 @@
                   <div class="form-group">
                     <label for="correo" class="sr-only">Correo</label>
                   </div>
-                  <input type="email" name="correo" id="correo" class="form-control" placeholder="Correo" autocomplete="off" required>
+                  <input type="email" name="correo" id="correo" class="form-control"  [(ngModel)]="usuarioModel.correo" placeholder="Correo" autocomplete="off" required>
                   <div class="form-group mb-4">
                     <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" autocomplete="off" required>
+                    <input type="password" name="password" id="password" class="form-control" [(ngModel)]="usuarioModel.password" placeholder="Contraseña" autocomplete="off" required>
                   </div>
-                  <a routerLinkActive="active" class="btn btn-block login-btn mb-4">Ingresar</a>
+                  <a (click)="login()" routerLinkActive="active" class="btn btn-block login-btn mb-4">Ingresar</a>
                 </form>
                 <p class="login-card-footer-text">Aun no tienes una cuenta?
                 <br><br>Debes solicitarsela al encargado.</p>

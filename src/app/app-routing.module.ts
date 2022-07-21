@@ -20,6 +20,10 @@ import { UsuarioAdministracionComponent } from './components/usuario-administrac
 import { UsuarioCafeteriaComponent } from './components/usuario-cafeteria/usuario-cafeteria.component';
 import { UsuarioCarritoCafeteriaComponent } from './components/usuario-carrito-cafeteria/usuario-carrito-cafeteria.component';
 import { UsuarioCarritoComponent } from './components/usuario-carrito/usuario-carrito.component';
+import { AlumnoGuard } from './services/alumno.guard';
+import { AdminGuard } from './services/admin.guard';
+import { CafeteriaGuard } from './services/cafeteria.guard';
+import { SecretariaGuard } from './services/secretaria.guard';
 const routes: Routes = [
 
   { path: '', redirectTo: 'login',  pathMatch: 'full'},
@@ -28,14 +32,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
 
   //Administrador Aplicacion
-  { path: 'admin', children: [
+  { path: 'admin', canActivate: [AdminGuard], children: [
     { path: 'inicio', component: InicioAdminappComponent},
     { path: 'usuarios', component: AdminAppUsuariosComponent},
     { path: 'administradores', component: AdminAppAdministradoresComponent},
   ]},
 
   //Usuario - Alumnos
-  { path: 'usuario', children: [
+  { path: 'usuario', canActivate: [AlumnoGuard], children: [
     { path: 'inicio', component: InicioAlumnoComponent},
     { path: 'cafeteria', component: UsuarioCafeteriaComponent},
     { path: 'administracion', component: UsuarioAdministracionComponent},
@@ -46,7 +50,7 @@ const routes: Routes = [
   ]},
 
   //Administrador - Administracion
-  { path: 'administracion', children: [
+  { path: 'administracion', canActivate: [SecretariaGuard], children: [
     { path: 'inicio', component: InicioAdministracionComponent},
     { path: 'pedidos', component: AdministracionPedidosComponent},
     { path: 'alumnos', component: AdministracionAlumnosComponent},
@@ -55,12 +59,14 @@ const routes: Routes = [
   ]},
 
   //Administrador - Cafeteria
-  { path: 'cafeteria', children: [
+  { path: 'cafeteria', canActivate: [CafeteriaGuard], children: [
     { path: 'inicio', component: InicioCafeteriaComponent},
     { path: 'pedidos', component: CafeteriaPedidosComponent},
     { path: 'alumnos', component: CafeteriaAlumnosComponent},
     { path: 'productos', component: CafeteriaProductosComponent},
   ]},
+
+  { path: '**', component: LoginComponent}
 ];
 
 @NgModule({

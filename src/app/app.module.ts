@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,8 @@ import { AdministracionProductosComponent } from './components/administracion-pr
 import { UsuarioCarritoCafeteriaComponent } from './components/usuario-carrito-cafeteria/usuario-carrito-cafeteria.component';
 import { MarbeteComponent } from './components/marbete/marbete.component';
 import { AdministracionMarbetesComponent } from './components/administracion-marbetes/administracion-marbetes.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +50,15 @@ import { AdministracionMarbetesComponent } from './components/administracion-mar
     AdministracionProductosComponent,
     UsuarioCarritoCafeteriaComponent,
     MarbeteComponent,
-    AdministracionMarbetesComponent
+    AdministracionMarbetesComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
