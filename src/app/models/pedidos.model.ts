@@ -1,5 +1,6 @@
 export class productos{
   constructor(
+    public _id: String,
     public producto:String,
     public cantidad:String,
     public subTotal:Number,

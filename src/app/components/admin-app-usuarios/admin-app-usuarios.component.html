@@ -59,11 +59,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let usuario of UsuariosModelGet; ">
                 <th scope="row" class="letras">1</th>
-                <td class="letras">Juan Diego</td>
-                <td class="letras">Solís Martínez</td>
-                <td class="letras">jsolis-2020148@kinal.edu.gt</td>
+                <td class="letras">{{usuario.nombres}}</td>
+                <td class="letras">{{usuario.apellidos}}</td>
+                <td class="letras">{{usuario.correo}}</td>
                 <td>
                   <button type="button" class="btn btn-primary letras" type="button" data-bs-toggle="modal" data-bs-target="#modalEditarUsuario">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -105,29 +105,29 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #addUsuarioForm="ngForm">
           <div class="mb-3">
             <label for="inputNombres" class="form-label letras">Nombres</label>
-            <input type="text" class="form-control letras" id="inputNombres" name="nombres" #nombres="" autocomplete="off" required>
+            <input type="text" class="form-control letras" id="inputNombres" name="nombres" #nombres="" [(ngModel)]="usuarioModel.nombres" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputApellidos" class="form-label letras">Apellidos</label>
-            <input type="text" class="form-control letras" id="inputApellidos" name="apellidos" #apellidos="" autocomplete="off" required>
+            <input type="text" class="form-control letras" id="inputApellidos" name="apellidos" #apellidos="" [(ngModel)]="usuarioModel.apellidos" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputCorreo" class="form-label letras">Correo Estudiantil</label>
-            <input type="email" class="form-control letras" id="inputCorreo" name="correo" #correo="" autocomplete="off" required>
+            <input type="email" class="form-control letras" id="inputCorreo" name="correo" #correo="" [(ngModel)]="usuarioModel.correo" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputPassword" class="form-label letras">Contraseña</label>
-            <input type="password" class="form-control letras" id="inputPassword" name="password" #password="" autocomplete="off" required>
+            <input type="password" class="form-control letras" id="inputPassword" name="password" [(ngModel)]="usuarioModel.password" #password="" autocomplete="off" required>
           </div>
           <br>
         </form>
       </div>
       <div class="modal-footer modal-partebaja">
         <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Agregar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal" (click)="registrar(addUsuarioForm)">Agregar</button>
       </div>
     </div>
   </div>

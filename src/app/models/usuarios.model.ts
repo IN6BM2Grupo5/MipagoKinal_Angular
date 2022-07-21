@@ -1,5 +1,6 @@
 export class usuarios{
   constructor(
+    public _id: String,
     public nombres: String,
     public apellidos: String,
     public carnet:String,

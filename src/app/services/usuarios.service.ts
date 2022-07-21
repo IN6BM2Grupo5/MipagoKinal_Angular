@@ -46,4 +46,39 @@ export class UsuariosService {
 
     return this.identidad;
   }
+
+  agregarAlumno(modeloUsuario: usuarios, token): Observable<any>{
+    let parametros = JSON.stringify(modeloUsuario);
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.post(this.url+'/agregarAlumno', parametros, {headers: headersToken})
+  }
+
+  agregarAdmin(modeloUsuario: usuarios, token): Observable<any>{
+    let parametros = JSON.stringify(modeloUsuario);
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.post(this.url+'/agregarAdmin', parametros, {headers: headersToken})
+  }
+
+  obtenerAlumnos(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/alumnos', { headers: headersToken })
+  }
+
+
+  eliminarUsuario(id : String, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization',token)
+
+    return this._http.delete(this.url + '/eliminarUsuario/' + id, { headers: headersToken })
+  }
+
+  editarUsuario(modeloUsuario: usuarios, token): Observable<any>{
+    let parametros = JSON.stringify(modeloUsuario);
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.put(this.url+'/editarUsuario/'+modeloUsuario._id, parametros, {headers: headersToken})
+  }
+
 }
