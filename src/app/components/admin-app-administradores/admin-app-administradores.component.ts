@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 export class AdminAppAdministradoresComponent implements OnInit {
   public usuarioModel: usuarios;
   public UsuariosModelGet: usuarios;
+  public UsuariosModelPut: usuarios;
+  public idEliminar: String;
 
   constructor(
     private _UsuariosService: UsuariosService
@@ -33,11 +35,30 @@ export class AdminAppAdministradoresComponent implements OnInit {
         fechaInicio: "",
         fechaFin: ""
       }]
-      )
+      ),
+      this.UsuariosModelPut = new usuarios(
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        0,
+        0,
+        [{
+          vehiculo: "",
+          placas: "",
+          modelo:"",
+          fechaInicio: "",
+          fechaFin: ""
+        }]
+        )
    }
 
   getUsuarios(){
-    this._UsuariosService.obtenerAlumnos(this._UsuariosService.obtenerToken()).subscribe(
+    this._UsuariosService.obtenerAdmins(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
           this.UsuariosModelGet = response.usuarios;
 
@@ -54,7 +75,7 @@ export class AdminAppAdministradoresComponent implements OnInit {
   }
 
   registrar(addUsuarioForm){
-    this._UsuariosService.agregarAlumno(this.usuarioModel, this._UsuariosService.obtenerToken()).subscribe(
+    this._UsuariosService.agregarAdmin(this.usuarioModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getUsuarios()
@@ -62,7 +83,67 @@ export class AdminAppAdministradoresComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Operación exitosa',
-          text: "Administrador creado exitosamente"
+          text: "Admin creado exitosamente"
+        })
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+
+  getUsuariosId(idUsuario){
+    this._UsuariosService.obtenerUsuariosId(idUsuario, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        this.UsuariosModelPut = response.usuario;
+        console.log(this.UsuariosModelPut )
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+  eliminar(){
+    this._UsuariosService.eliminarUsuario(this.idEliminar, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        this.getUsuarios()
+        console.log(this.idEliminar)
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "Admin eliminado exitosamente"
+        })
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+  editar(editarUsuarioForm){
+    this._UsuariosService.editarUsuario(this.UsuariosModelPut, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getUsuarios()
+        editarUsuarioForm.reset()
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "Admin editado exitosamente"
         })
       },
       (error)=>{

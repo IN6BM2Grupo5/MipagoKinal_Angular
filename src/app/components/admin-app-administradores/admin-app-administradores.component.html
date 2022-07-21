@@ -59,11 +59,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let usuario of UsuariosModelGet;">
                 <th scope="row" class="letras">1</th>
-                <td class="letras">Armando</td>
-                <td class="letras">A</td>
-                <td class="letras">Cafeteria</td>
+                <td class="letras">{{usuario.nombres}}</td>
+                <td class="letras">{{usuario.usuario}</td>
+                <td class="letras">{{usuario.rol}}</td>
                 <td>
                   <button type="button" class="btn btn-primary letras" type="button" data-bs-toggle="modal" data-bs-target="#modalEditarAdministrador">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
