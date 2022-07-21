@@ -12,7 +12,7 @@ export class AdminAppUsuariosComponent implements OnInit {
   public usuarioModel: usuarios;
   public UsuariosModelGet: usuarios;
   public UsuariosModelPut: usuarios;
-  public idEliminar;
+  public idEliminar: String;
 
   constructor(
     private _UsuariosService: UsuariosService
@@ -102,6 +102,27 @@ export class AdminAppUsuariosComponent implements OnInit {
       (response)=>{
         this.UsuariosModelPut = response.usuario;
         console.log(this.UsuariosModelPut )
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+  eliminar(){
+    this._UsuariosService.eliminarUsuario(this.idEliminar, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        this.getUsuarios()
+        console.log(this.idEliminar)
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "Alumno eliminado exitosamente"
+        })
       },
       (error)=>{
         Swal.fire({
