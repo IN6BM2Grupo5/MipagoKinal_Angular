@@ -26,6 +26,7 @@ import { UsuarioCarritoCafeteriaComponent } from './components/usuario-carrito-c
 import { MarbeteComponent } from './components/marbete/marbete.component';
 import { AdministracionMarbetesComponent } from './components/administracion-marbetes/administracion-marbetes.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { DocumentoMarbeteComponent } from './components/documento-marbete/documento-marbete.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     UsuarioCarritoCafeteriaComponent,
     MarbeteComponent,
     AdministracionMarbetesComponent,
+    DocumentoMarbeteComponent,
   ],
   imports: [
     BrowserModule,
