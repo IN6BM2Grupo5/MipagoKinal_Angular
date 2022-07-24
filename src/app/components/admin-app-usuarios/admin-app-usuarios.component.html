@@ -46,6 +46,9 @@
       </div>
 
       <div class="row">
+        <div class="input-group">
+          <input type="search" class="form-control rounded letras" placeholder="Buscar usuario (carnet del alumno)" aria-label="buscar" aria-describedby="search-addon" />
+        </div>
         <div class="col-12 col-md-12 py-3">
           <table class="table table-primary table-striped">
             <thead>
@@ -59,7 +62,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let usuario of UsuariosModelGet; ">
+              <tr>
+                <tr *ngFor="let usuario of UsuariosModelGet; ">
                 <th scope="row" class="letras carnet">{{usuario.carnet}}</th>
                 <td class="letras">{{usuario.nombres}}</td>
                 <td class="letras">{{usuario.apellidos}}</td>
@@ -198,5 +202,3 @@
     </div>
   </div>
 </div>
-
-</html>

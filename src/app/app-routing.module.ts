@@ -24,6 +24,7 @@ import { AlumnoGuard } from './services/alumno.guard';
 import { AdminGuard } from './services/admin.guard';
 import { CafeteriaGuard } from './services/cafeteria.guard';
 import { SecretariaGuard } from './services/secretaria.guard';
+import { DocumentoMarbeteComponent } from './components/documento-marbete/documento-marbete.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'login',  pathMatch: 'full'},
@@ -47,7 +48,9 @@ const routes: Routes = [
     { path: 'carrito-cafeteria', component: UsuarioCarritoCafeteriaComponent},
     { path: 'perfil', component: PerfilComponent},
     { path: 'marbete', component: MarbeteComponent},
+    { path: 'documento-marbete', component: DocumentoMarbeteComponent},
   ]},
+
 
   //Administrador - Administracion
   { path: 'administracion', canActivate: [SecretariaGuard], children: [

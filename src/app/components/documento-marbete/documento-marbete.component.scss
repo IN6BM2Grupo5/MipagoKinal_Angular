@@ -1,0 +1,68 @@
+*{
+  font-family: 'League Spartan', sans-serif;
+}
+
+body{
+  background-image: url(../../../assets/img/fondogeneral.png);
+}
+
+.contenedor {
+  background-image: linear-gradient(to right, #014a97b9, #014a97c5), url(https://images.unsplash.com/photo-1555832438-e6ada221ff4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
+  margin: 30px auto;
+  width: 300px;
+  height: 800px;
+  border-radius: 180px 180px 80px 80px;
+  padding: .1px;
+}
+
+.circulo {
+  width: 150px;
+  height: 150px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-image: url(../../../assets/img/fondogeneral.png);
+  margin: 60px auto 30px auto;
+}
+
+.imagen {
+  width: 150px;
+  height: 150px;
+  background: url(../../../assets/img/logo.png);
+  background-size: cover;
+  background-position:center;
+  margin: 0px auto;
+  display: flex;
+}
+
+.cuadrado {
+  width: 250px;
+  height: 270px;
+  background: #ffd599;
+  background-image: linear-gradient(to right, #ffd599cc, #ffd599c7), url(../../../assets/img/fonban.png);
+  background-size: cover;
+  background-position:center;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 20px 20px 50px 50px;
+}
+
+.titulo1 {
+  margin-top: 1px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 60px;
+  text-align: center;
+  color:#fcbf69;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 30px;
+  padding-top: 35px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
