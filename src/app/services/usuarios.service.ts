@@ -61,6 +61,12 @@ export class UsuariosService {
     return this._http.post(this.url+'/agregarAdmin', parametros, {headers: headersToken})
   }
 
+  obtenerAlumnoCarnet(carnet: String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/alumnosPorCarnet/'+carnet, { headers: headersToken })
+  }
+
   obtenerAlumnos(token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
 

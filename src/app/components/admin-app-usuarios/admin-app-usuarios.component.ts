@@ -74,6 +74,24 @@ export class AdminAppUsuariosComponent implements OnInit {
     )
   }
 
+  getUsuariosCarnet(carnet){
+    if(carnet){
+      this._UsuariosService.obtenerAlumnoCarnet(carnet, this._UsuariosService.obtenerToken()).subscribe(
+        (response) => {
+            this.UsuariosModelGet = response.usuarios;
+
+            console.log(response.usuarios)
+        },
+        (error) => {
+          this.getUsuarios();
+        }
+      )
+    }else{
+      this.getUsuarios()
+    }
+
+  }
+
   registrar(addUsuarioForm){
     this._UsuariosService.agregarAlumno(this.usuarioModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
