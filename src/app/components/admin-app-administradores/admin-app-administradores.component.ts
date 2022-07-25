@@ -14,6 +14,11 @@ export class AdminAppAdministradoresComponent implements OnInit {
   public UsuariosModelPut: usuarios;
   public idEliminar: String;
 
+  roles = [
+    {nombre: 'Admin Cafeteria', rol: 'Admin_Cafeteria'},
+    {nombre: 'Admin Secretaria', rol: 'Admin_Secretaria' }
+  ]
+
   constructor(
     private _UsuariosService: UsuariosService
   ) {
@@ -75,6 +80,7 @@ export class AdminAppAdministradoresComponent implements OnInit {
   }
 
   registrar(addUsuarioForm){
+    console.log(this.usuarioModel)
     this._UsuariosService.agregarAdmin(this.usuarioModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);

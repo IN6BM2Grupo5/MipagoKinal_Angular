@@ -62,7 +62,7 @@
               <tr *ngFor="let usuario of UsuariosModelGet;">
                 <th scope="row" class="letras">1</th>
                 <td class="letras">{{usuario.nombres}}</td>
-                <td class="letras">{{usuario.usuario}</td>
+                <td class="letras">{{usuario.correo}}</td>
                 <td class="letras">{{usuario.rol}}</td>
                 <td>
                   <button type="button" class="btn btn-primary letras" type="button" data-bs-toggle="modal" data-bs-target="#modalEditarAdministrador">
@@ -73,7 +73,7 @@
                   </button>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-danger letras" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
+                  <button (click)="this.idEliminar=usuario._id" type="button" class="btn btn-danger letras" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                       <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                     </svg> Eliminar
@@ -105,23 +105,23 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #addUsuarioForm="ngForm">
           <div class="mb-3">
             <label for="inputNombre" class="form-label letras">Nombre</label>
-            <input type="text" class="form-control letras" id="inputNombre" name="nombre" #nombre=""  autocomplete="off" required>
+            <input type="text" class="form-control letras" id="inputNombre" name="nombre" #nombre="" [(ngModel)]="usuarioModel.nombres" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputCorreo" class="form-label letras">Correo</label>
-            <input type="email" class="form-control letras" id="inputCorreo" name="correo" #correo=""  autocomplete="off" required>
+            <input type="email" class="form-control letras" id="inputCorreo" name="correo" #correo=""  [(ngModel)]="usuarioModel.correo"  autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputPassword" class="form-label letras">Contraseña</label>
-            <input type="password" class="form-control letras" id="inputPassword" name="password" #password=""  autocomplete="off" required>
+            <input type="password" [(ngModel)]="usuarioModel.password"  class="form-control letras" id="inputPassword" name="password" #password=""  autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputTipo" class="form-label letras">Tipo Administrador</label>
-            <select class="form-select" id="inputTipo letras" name="tipo" required>
-              <option></option>
+            <select class="form-select" id="inputTipo letras"  [(ngModel)]="usuarioModel.rol" name="tipo" required>
+              <option *ngFor="let rol of roles" value="{{ rol.rol }}" >{{ rol.nombre }}</option>
             </select>
           </div>
           <br>
@@ -129,7 +129,7 @@
       </div>
       <div class="modal-footer modal-partebaja">
         <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Agregar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal"  (click)="registrar(addUsuarioForm)">Agregar</button>
       </div>
     </div>
   </div>
@@ -189,7 +189,7 @@
       </div>
       <div class="modal-footer bajo">
         <button type="button" class="btn btn-danger boton2" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary boton3">Confirmar</button>
+        <button data-bs-dismiss="modal" (click)="eliminar()" type="button" class="btn btn-primary boton3">Confirmar</button>
       </div>
     </div>
   </div>
