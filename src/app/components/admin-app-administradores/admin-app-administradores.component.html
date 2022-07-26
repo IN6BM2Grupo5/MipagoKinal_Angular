@@ -51,7 +51,8 @@
             <thead>
               <tr>
                 <th scope="col" class="letras">#</th>
-                <th scope="col" class="letras">Nombre</th>
+                <th scope="col" class="letras">Nombres</th>
+                <th scope="col" class="letras">Apellidos</th>
                 <th scope="col" class="letras">Correo</th>
                 <th scope="col" class="letras">Tipo</th>
                 <th scope="col" class="letras">Editar</th>
@@ -62,6 +63,7 @@
               <tr *ngFor="let usuario of UsuariosModelGet;">
                 <th scope="row" class="letras">1</th>
                 <td class="letras">{{usuario.nombres}}</td>
+                <td class="letras">{{usuario.apellidos}}</td>
                 <td class="letras">{{usuario.correo}}</td>
                 <td class="letras">{{usuario.rol}}</td>
                 <td>
@@ -107,8 +109,12 @@
       <div class="modal-body">
         <form #addUsuarioForm="ngForm">
           <div class="mb-3">
-            <label for="inputNombre" class="form-label letras">Nombre</label>
+            <label for="inputNombre" class="form-label letras">Nombres</label>
             <input type="text" class="form-control letras" id="inputNombre" name="nombre" #nombre="" [(ngModel)]="usuarioModel.nombres" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputApellido" class="form-label letras">Apellidos</label>
+            <input type="text" class="form-control letras" id="inputApellido" name="apellido" #apellido="" [(ngModel)]="usuarioModel.apellidos" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputCorreo" class="form-label letras">Correo</label>
@@ -146,8 +152,12 @@
       <div class="modal-body">
         <form #editarUsuarioForm="ngForm">
           <div class="mb-3">
-            <label for="inputNombre" class="form-label letras">Nombre</label>
+            <label for="inputNombre" class="form-label letras">Nombres</label>
             <input type="text" class="form-control letras" id="inputNombre" name="nombre" #nombre=""  [(ngModel)]="UsuariosModelPut.nombres"  autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputApellido" class="form-label letras">Apellidos</label>
+            <input type="text" class="form-control letras" id="inputApellido" name="apellido" #apellido=""  [(ngModel)]="UsuariosModelPut.apellidos"  autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputCorreo" class="form-label letras">Correo</label>
