@@ -93,6 +93,13 @@ export class UsuariosService {
     return this._http.put(this.url+'/editarUsuario/'+modeloUsuario._id, parametros, {headers: headersToken})
   }
 
+  agregarFondos(modeloUsuario: usuarios, token): Observable<any>{
+    let parametros = JSON.stringify(modeloUsuario);
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.put(this.url+'/ingresarFondos/'+modeloUsuario._id, parametros, {headers: headersToken})
+  }
+
   obtenerUsuariosId(id : String, token): Observable<any> {
 
     let headersToken = this.headersVariable.set('Authorization',token)
