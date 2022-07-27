@@ -145,8 +145,15 @@
             <input type="number" min="1" class="form-control letras" id="inputPrecio" name="precio" #precio=""  autocomplete="off" required>
           </div>
           <div class="mb-3">
+            <label for="stock" class="form-label letras">Stock</label>
+            <select class="form-select" name="stock"  (change)="cambiarValor($event.target.value);" [(ngModel)]="valorStock" >
+              <option  value="si">si</option>
+              <option  value="no">no</option>
+            </select>
+          </div>
+          <div class="mb-3">
             <label for="cantidad" class="form-label letras">Cantidad Producto</label>
-            <input type="number" min="1" class="form-control letras" id="inputCantidad" name="cantidad" #cantidad=""  autocomplete="off" required>
+            <input type="number" min="1" class="form-control letras" id="inputCantidad" name="cantidad" #cantidad="" autocomplete="off" required>
           </div>
           <br>
         </form>
