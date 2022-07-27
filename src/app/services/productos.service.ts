@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { productos } from '../models/productos.model'
+import { pedidos } from '../models/pedidos.model'
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +54,14 @@ export class ProductosService {
 
     return this._http.get(this.url + '/productoPorId/' + id, { headers: headersToken  })
   }
+
+  agregarPedido(modeloPedido: pedidos, token): Observable<any>{
+    let parametros = JSON.stringify(modeloPedido);
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.post(this.url+'/pedido/'+ modeloPedido.idProducto, parametros, {headers: headersToken})
+  }
+
 
 
 }
