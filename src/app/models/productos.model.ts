@@ -6,6 +6,7 @@ export class productos{
     public precio:Number,
     public stock:Number,
     public estado:String,
-    public tipo:String
+    public tipo:String,
+    public subTipo:String
   ){}
 }

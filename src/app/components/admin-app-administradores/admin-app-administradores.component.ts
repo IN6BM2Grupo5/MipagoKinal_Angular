@@ -30,9 +30,10 @@ export class AdminAppAdministradoresComponent implements OnInit {
       "",
       "",
       "",
+      0,
+      0,
+      0,
       "",
-      0,
-      0,
       [{
         vehiculo: "",
         placas: "",
@@ -40,7 +41,7 @@ export class AdminAppAdministradoresComponent implements OnInit {
         fechaInicio: "",
         fechaFin: ""
       }]
-      ),
+    ),
       this.UsuariosModelPut = new usuarios(
         "",
         "",
@@ -49,9 +50,10 @@ export class AdminAppAdministradoresComponent implements OnInit {
         "",
         "",
         "",
+        0,
+        0,
+        0,
         "",
-        0,
-        0,
         [{
           vehiculo: "",
           placas: "",
@@ -59,7 +61,7 @@ export class AdminAppAdministradoresComponent implements OnInit {
           fechaInicio: "",
           fechaFin: ""
         }]
-        )
+      )
    }
 
   getUsuarios(){

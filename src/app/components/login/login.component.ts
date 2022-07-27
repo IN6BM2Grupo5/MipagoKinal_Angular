@@ -24,9 +24,10 @@ export class LoginComponent implements OnInit {
       "",
       "",
       "",
+      0,
+      0,
+      0,
       "",
-      0,
-      0,
       [{
         vehiculo: "",
         placas: "",
