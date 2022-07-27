@@ -133,16 +133,12 @@ export class AdministracionProductosComponent implements OnInit {
   }
 
   geProductosId(idProducto) {
-    const input = document.getElementById('inputCantidadEditar') as HTMLInputElement | null;
-
     this._ProductosService.obtenerProductosId(idProducto, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
 
         if(response.producto.subTipo == "ConStock"){
-          input.disabled=false
           this.valorStockEditar = "Si"
         }else{
-          input.disabled=true
           this.valorStockEditar = "No"
         }
 

@@ -70,6 +70,7 @@ export class CafeteriaProductosComponent implements OnInit {
         console.log(response);
         this.getProductos()
         addProductoForm.reset()
+        this.valorStock="Si";
         Swal.fire({
           icon: 'success',
           title: 'Operación exitosa',
@@ -132,16 +133,13 @@ export class CafeteriaProductosComponent implements OnInit {
   }
 
   geProductosId(idProducto) {
-    const input = document.getElementById('inputCantidadEditar') as HTMLInputElement | null;
 
     this._ProductosService.obtenerProductosId(idProducto, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
 
         if(response.producto.subTipo == "ConStock"){
-          input.disabled=false
           this.valorStockEditar = "Si"
         }else{
-          input.disabled=true
           this.valorStockEditar = "No"
         }
 
@@ -158,27 +156,5 @@ export class CafeteriaProductosComponent implements OnInit {
     )
   }
 
-  cambiarValor(valor) {
-    const input = document.getElementById('inputCantidad') as HTMLInputElement | null;
 
-    this.valorStock = valor
-    if(this.valorStock=="No"){
-      input.disabled=true
-    }else{
-      input.disabled=false;
-    }
-  }
-
-  cambiarValorEditar(valor) {
-    const input = document.getElementById('inputCantidadEditar') as HTMLInputElement | null;
-
-    this.valorStockEditar = valor
-    if(this.valorStockEditar=="No"){
-      input.disabled=true
-    }else{
-      input.disabled=false;
-    }
-
-
-  }
 }
