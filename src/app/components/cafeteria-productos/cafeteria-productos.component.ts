@@ -4,7 +4,6 @@ import { ProductosService } from 'src/app/services/productos.service';
 import { productos } from 'src/app/models/productos.model';
 import Swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-cafeteria-productos',
   templateUrl: './cafeteria-productos.component.html',
