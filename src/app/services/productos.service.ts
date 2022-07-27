@@ -18,11 +18,32 @@ export class ProductosService {
     let parametros = JSON.stringify(modeloProducto);
     let headersToken = this.headersVariable.set('Authorization', token)
 
-    if(modeloProducto.stock == null) {
-      return this._http.post(this.url+'/productoSinStock', parametros, {headers: headersToken})
-    }else{
-      return this._http.post(this.url+'/productoConStock', parametros, {headers: headersToken})
-    }
+    return this._http.post(this.url+'/productoConStock', parametros, {headers: headersToken})
+  }
+
+  obtenerProductosCafeteria(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/productosCafeteria', { headers: headersToken })
+  }
+
+  obtenerProductosSecretaria(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/productosSecretaria', { headers: headersToken })
+  }
+
+  eliminarProducto(id : String, token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization',token)
+
+    return this._http.delete(this.url + '/eliminarProductos/' + id, { headers: headersToken })
+  }
+
+  obtenerProductosId(id : String, token): Observable<any> {
+
+    let headersToken = this.headersVariable.set('Authorization',token)
+
+    return this._http.get(this.url + '/productoPorId/' + id, { headers: headersToken  })
   }
 
 
