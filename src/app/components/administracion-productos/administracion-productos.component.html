@@ -144,9 +144,16 @@
               <option  value="No">No</option>
             </select>
           </div>
+          <div class="mb-3" *ngIf="valorStockEditar=='No'" >
+            <label for="estado" class="form-label letras">Estado</label>
+            <select class="form-select" name="estado" [(ngModel)]="ProductosModelPut.estado" >
+              <option  value="Disponible">Disponible</option>
+              <option  value="No Disponible">No Disponible</option>
+            </select>
+          </div>
           <div class="mb-3">
             <label for="cantidad" class="form-label letras">Cantidad Producto</label>
-            <input value="1" [(ngModel)]="ProductosModelPut.stock"  type="number" min="1" class="form-control letras" id="inputCantidadEditar" name="cantidad" #cantidad=""  autocomplete="off" required>
+            <input value="1" [(ngModel)]="ProductosModelPut.stock"  type="number" min="0" class="form-control letras" id="inputCantidadEditar" name="cantidad" #cantidad=""  autocomplete="off" required>
           </div>
           <br>
         </form>
