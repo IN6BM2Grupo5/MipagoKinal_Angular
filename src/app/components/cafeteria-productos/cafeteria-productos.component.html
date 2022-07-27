@@ -144,7 +144,7 @@
               <option  value="No">No</option>
             </select>
           </div>
-          <div class="mb-3" *ngIf="ProductosModelPut.subTipo=='SinStock' || valorStockEditar=='No'" >
+          <div class="mb-3" *ngIf="ProductosModelPut.subTipo=='SinStock' || valorStockEditar!='Si'" >
             <label for="estado" class="form-label letras">Estado</label>
             <select class="form-select" name="estado" [(ngModel)]="ProductosModelPut.estado" >
               <option  value="Disponible">Disponible</option>
