@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   providers: [UsuariosService, ProductosService]
 })
 export class UsuarioCafeteriaComponent implements OnInit {
-  public identidad;ss
+  public identidad;
   public ProductosModelGet: productos;
   constructor(private _UsuariosService: UsuariosService, private _ProductosService: ProductosService) {
     this.identidad = this._UsuariosService.obtenerIdentidad();

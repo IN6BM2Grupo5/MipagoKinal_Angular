@@ -14,7 +14,7 @@
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
               <img src="../../../assets/img/logo.jpg"
                 alt="Avatar" class="img-fluid my-5" style="width: 145px;" />
-              <h5>jsolis-2020148</h5>
+              <h5>{{identidad.correo}}</h5>
               <p>Alumno</p>
               <i class="far fa-edit mb-5"></i>
             </div>
@@ -25,11 +25,11 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Nombre</h6>
-                    <p class="text-muted">Juan Diego Solís Martínez</p>
+                    <p class="text-muted">{{identidad.nombres}} {{identidad.apellidos}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Carnet</h6>
-                    <p class="text-muted">2020148</p>
+                    <p class="text-muted">{{identidad.carnet}}</p>
                   </div>
                 </div>
                 <h6>Fondos</h6>
@@ -37,11 +37,11 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Administración</h6>
-                    <p class="text-muted">Q250.00</p>
+                    <p class="text-muted">Q{{identidad.cuentaAdmin | number: '1.2-2'}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Cafetería</h6>
-                    <p class="text-muted">Q150.00</p>
+                    <p class="text-muted">Q{{identidad.cuentaCafeteria | number: '1.2-2'}}</p>
                   </div>
                 </div>
                 <div class="d-flex justify-content-start">
