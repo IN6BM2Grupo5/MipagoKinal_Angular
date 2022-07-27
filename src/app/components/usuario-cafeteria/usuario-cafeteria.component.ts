@@ -54,9 +54,7 @@ export class UsuarioCafeteriaComponent implements OnInit {
   }
 
   Pedir(pedirForm){
-    var re = /-/gi;
     this.pedidosModel.idProducto = this.idPedido;
-    this.pedidosModel.fechaPedido = this.pedidosModel.fechaPedido.replace(re,":")
     console.log(this.pedidosModel)
     this._ProductosService.agregarPedido(this.pedidosModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
