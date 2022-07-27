@@ -73,6 +73,12 @@ export class UsuariosService {
     return this._http.get(this.url + '/alumnos', { headers: headersToken })
   }
 
+  obtenerMarbete(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/verMarbete', { headers: headersToken })
+  }
+
   obtenerAdmins(token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
 

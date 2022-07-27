@@ -159,27 +159,4 @@ export class AdministracionProductosComponent implements OnInit {
     )
   }
 
-  cambiarValor(valor) {
-    const input = document.getElementById('inputCantidad') as HTMLInputElement | null;
-
-    this.valorStock = valor
-    if(this.valorStock=="No"){
-      input.disabled=true
-    }else{
-      input.disabled=false;
-    }
-  }
-
-  cambiarValorEditar(valor) {
-    const input = document.getElementById('inputCantidadEditar') as HTMLInputElement | null;
-
-    this.valorStockEditar = valor
-    if(this.valorStockEditar=="No"){
-      input.disabled=true
-    }else{
-      input.disabled=false;
-    }
-
-
-  }
 }

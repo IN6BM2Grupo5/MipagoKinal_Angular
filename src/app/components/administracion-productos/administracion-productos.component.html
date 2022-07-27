@@ -99,12 +99,12 @@
           </div>
           <div class="mb-3">
             <label for="stock" class="form-label letras">Stock</label>
-            <select class="form-select" name="stock"  (change)="cambiarValor($event.target.value);" [(ngModel)]="valorStock" >
+            <select class="form-select" name="stock" [(ngModel)]="valorStock" (change)="valorStock = ($event.target.value);"  >
               <option  value="Si">Si</option>
               <option  value="No">No</option>
             </select>
           </div>
-          <div class="mb-3">
+          <div class="mb-3" *ngIf="valorStock=='Si'">
             <label for="cantidad" class="form-label letras">Cantidad Producto</label>
             <input type="number" value="1" [(ngModel)]="ProductosModel.stock" min="1" class="form-control letras" id="inputCantidad" name="cantidad" #cantidad=""  autocomplete="off" required>
           </div>
@@ -139,7 +139,7 @@
           </div>
           <div class="mb-3">
             <label for="stock" class="form-label letras">Stock</label>
-            <select class="form-select" name="stock"  (change)="cambiarValorEditar($event.target.value);" [(ngModel)]="valorStockEditar" >
+            <select class="form-select" name="stock"  (change)="valorStockEditar = ($event.target.value);" [(ngModel)]="valorStockEditar" >
               <option  value="Si">Si</option>
               <option  value="No">No</option>
             </select>
@@ -151,8 +151,8 @@
               <option  value="No Disponible">No Disponible</option>
             </select>
           </div>
-          <div class="mb-3">
-            <label for="cantidad" class="form-label letras">Cantidad Producto</label>
+          <div class="mb-3" *ngIf="valorStockEditar=='Si'">
+            <label for="cantidad"  class="form-label letras">Cantidad Producto</label>
             <input value="1" [(ngModel)]="ProductosModelPut.stock"  type="number" min="0" class="form-control letras" id="inputCantidadEditar" name="cantidad" #cantidad=""  autocomplete="off" required>
           </div>
           <br>
