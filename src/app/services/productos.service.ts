@@ -39,6 +39,14 @@ export class ProductosService {
     return this._http.delete(this.url + '/eliminarProductos/' + id, { headers: headersToken })
   }
 
+  editarProducto(modeloProducto: productos, token): Observable<any>{
+    let parametros = JSON.stringify(modeloProducto);
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.put(this.url+'/editarProducto/'+modeloProducto._id, parametros, {headers: headersToken})
+  }
+
+
   obtenerProductosId(id : String, token): Observable<any> {
 
     let headersToken = this.headersVariable.set('Authorization',token)

@@ -128,7 +128,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #editarProductoForm="ngForm">
           <div class="mb-3">
             <label for="inputNombre" class="form-label letras">Nombre Producto</label>
             <input  [(ngModel)]="ProductosModelPut.producto" type="text" class="form-control letras" id="inputNombre" name="nombre" #nombre=""  autocomplete="off" required>
@@ -146,14 +146,14 @@
           </div>
           <div class="mb-3">
             <label for="cantidad" class="form-label letras">Cantidad Producto</label>
-            <input  [(ngModel)]="ProductosModelPut.stock" type="number" min="1" class="form-control letras" id="inputCantidadEditar" name="cantidad" #cantidad=""  autocomplete="off" required>
+            <input  [(ngModel)]="ProductosModelPut.stock" type="number" min="1" value="1" class="form-control letras" id="inputCantidadEditar" name="cantidad" #cantidad=""  autocomplete="off" required>
           </div>
           <br>
         </form>
       </div>
       <div class="modal-footer modal-partebaja">
         <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Confirmar</button>
+        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal" (click)="editar(editarProductoForm)">Confirmar</button>
       </div>
     </div>
   </div>

@@ -66,7 +66,6 @@ export class CafeteriaProductosComponent implements OnInit {
   agregar(addProductoForm){
     this.ProductosModel.subTipo = this.valorStock;
     this.ProductosModel.descripcion=" "
-    console.log(this.ProductosModel)
     this._ProductosService.agregarProducto(this.ProductosModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
@@ -76,6 +75,30 @@ export class CafeteriaProductosComponent implements OnInit {
           icon: 'success',
           title: 'Operación exitosa',
           text: "Producto creado exitosamente"
+        })
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+  editar(editarProductoForm){
+    this.ProductosModelPut.subTipo = this.valorStockEditar;
+    this.ProductosModelPut.descripcion=" "
+    console.log(this.ProductosModelPut.stock)
+    this._ProductosService.editarProducto(this.ProductosModelPut, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        this.getProductos()
+        editarProductoForm.reset()
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "Producto editado exitosamente"
         })
       },
       (error)=>{
@@ -110,19 +133,21 @@ export class CafeteriaProductosComponent implements OnInit {
   }
 
   geProductosId(idProducto) {
+    const input = document.getElementById('inputCantidadEditar') as HTMLInputElement | null;
+
     this._ProductosService.obtenerProductosId(idProducto, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
-        this.ProductosModelPut = response.producto;
 
-        if(this.ProductosModelPut.subTipo = "SinStock"){
-          this.valorStockEditar = "No"
-        }else{
+        if(response.producto.subTipo == "ConStock"){
+          input.disabled=false
           this.valorStockEditar = "Si"
+        }else{
+          input.disabled=true
+          this.valorStockEditar = "No"
         }
 
-        this.cambiarValorEditar();
+        this.ProductosModelPut = response.producto;
 
-        console.log(this.ProductosModelPut )
       },
       (error)=>{
         Swal.fire({
@@ -134,7 +159,7 @@ export class CafeteriaProductosComponent implements OnInit {
     )
   }
 
-  cambiarValor(valor?) {
+  cambiarValor(valor) {
     const input = document.getElementById('inputCantidad') as HTMLInputElement | null;
 
     this.valorStock = valor
@@ -145,7 +170,7 @@ export class CafeteriaProductosComponent implements OnInit {
     }
   }
 
-  cambiarValorEditar(valor?) {
+  cambiarValorEditar(valor) {
     const input = document.getElementById('inputCantidadEditar') as HTMLInputElement | null;
 
     this.valorStockEditar = valor
@@ -154,5 +179,7 @@ export class CafeteriaProductosComponent implements OnInit {
     }else{
       input.disabled=false;
     }
+
+
   }
 }
