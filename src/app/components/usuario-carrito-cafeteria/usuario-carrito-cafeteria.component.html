@@ -36,10 +36,10 @@
           </button>
         </div>
         <div class="col-12 col-md-4 py-3">
-          <p class="saldo">Total en pedidos: Q9.00</p>
+          <p class="saldo">Total en pedidos: Q{{total | number: '1.2-2'}}</p>
         </div>
         <div class="col-12 col-md-4 py-3">
-          <p class="saldo">Fondos: Q80.00</p>
+          <p class="saldo">Fondos: Q{{identidad.cuentaCafeteria | number: '1.2-2'}}</p>
         </div>
       </div>
 
@@ -58,15 +58,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let pedido of pedidosModelGet; ">
                 <th scope="row" class="letras">1</th>
-                <td class="letras">Pan con Pollo</td>
-                <td class="letras">10</td>
-                <td class="letras">Q8.00</td>
-                <td class="letras">Q80.00</td>
-                <td class="letras">07/05/2022</td>
+                <td class="letras">{{pedido.producto}}</td>
+                <td class="letras">{{pedido.cantidad}}</td>
+                <td class="letras">Q{{pedido.subTotal/pedido.cantidad | number: '1.2-2'}}</td>
+                <td class="letras">Q{{pedido.subTotal | number: '1.2-2'}}</td>
+                <td class="letras">{{pedido.fechaPedido | date:'dd/MM/yy'}}</td>
                 <td>
-                  <button type="button" class="btn btn-danger letras" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
+                  <button type="button" (click)="this.idPedido=pedido._id" class="btn btn-danger letras" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z"/>
                     </svg> Cancelar
@@ -108,7 +108,7 @@
       </div>
       <div class="modal-footer bajo">
         <button type="button" class="btn btn-danger boton2" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary boton3">Confirmar</button>
+        <button type="button" (click)="cancelar(idPedido)" data-bs-dismiss="modal" class="btn btn-primary boton3">Confirmar</button>
       </div>
     </div>
   </div>
