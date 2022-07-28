@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { ProductosService } from 'src/app/services/productos.service';;
-import { pedidos } from 'src/app/models/pedidos.model';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-usuario-carrito-cafeteria',
@@ -65,6 +64,7 @@ export class UsuarioCarritoCafeteriaComponent implements OnInit {
   }
 
   getTotal(){
+    this.total=0;
     for(let i = 0; i < this.pedidosModelGet.length; i++){
       this.total = this.total + this.pedidosModelGet[i].subTotal
     }
