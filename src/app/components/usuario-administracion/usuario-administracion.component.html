@@ -52,7 +52,7 @@
             <div class="card-content">
               <h2 class="card-title">{{producto.producto}}</h2>
               <p>Precio: Q{{producto.precio | number: '1.2-2'}}</p>
-              <button type="button" *ngIf="producto.estado == 'Disponible'" class="btn btn-warning margin-left" type="button" data-bs-toggle="modal" data-bs-target="#modalCantidad"
+              <button type="button" *ngIf="producto.estado == 'Disponible'"  (click)="this.idPedido=producto._id" class="btn btn-warning margin-left" type="button" data-bs-toggle="modal" data-bs-target="#modalCantidad"
                 aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
                   <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
                 </svg>
@@ -88,21 +88,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #pedirForm="ngForm">
           <div class="mb-3">
             <label for="inputCantidad" class="form-label letras">Cantidad</label>
-            <input type="number" min="1" class="form-control letras" id="inputCantidad" name="cantidad" #cantidad="" autocomplete="off" required>
+            <input type="number" min="1"  [(ngModel)]="pedidosModel.cantidad"  class="form-control letras" id="inputCantidad" name="cantidad" #cantidad="" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="inputFecha" class="form-label letras">Fecha de entrega</label>
-            <input type="date" class="form-control letras" id="inputFecha" name="fecha" #fecha="" autocomplete="off" required>
+            <input type="date" [(ngModel)]="pedidosModel.fechaPedido"  class="form-control letras" id="inputFecha" name="fecha" #fecha="" autocomplete="off" required>
           </div>
           <br>
         </form>
       </div>
       <div class="modal-footer modal-partebaja">
         <button type="button" class="btn btn-danger letras" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary letras"  data-bs-dismiss="modal">Confirmar</button>
+        <button type="button" class="btn btn-primary letras"  (click)="Pedir(pedirForm)" data-bs-dismiss="modal">Confirmar</button>
       </div>
     </div>
   </div>

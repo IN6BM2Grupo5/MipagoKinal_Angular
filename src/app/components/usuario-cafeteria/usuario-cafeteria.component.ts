@@ -84,13 +84,24 @@ export class UsuarioCafeteriaComponent implements OnInit {
         })
       },
       (error)=>{
-        Swal.fire({
-          icon: 'error',
-          imageUrl: '../../../assets/img/delorean.png',
-          imageHeight: 150,
-          title: 'Oops...',
-          text: error.error.mensaje
-        })
+
+        if(error.error.mensaje=="No dispones de una maquina del tiempo McFly"){
+          Swal.fire({
+            icon: 'error',
+            imageUrl: '../../../assets/img/delorean.png',
+            imageHeight: 150,
+            title: 'Oops...',
+            text: error.error.mensaje
+          })
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.error.mensaje
+          })
+        }
+
+
       }
     )
   }
