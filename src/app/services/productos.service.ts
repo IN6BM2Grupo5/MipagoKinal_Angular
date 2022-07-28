@@ -40,6 +40,12 @@ export class ProductosService {
     return this._http.get(this.url + '/verPedidos', { headers: headersToken })
   }
 
+  obtenerPedidosCarnet(carnet:String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/pedidosPorCarnet/'+carnet, { headers: headersToken })
+  }
+
   eliminarProducto(id : String, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization',token)
 
@@ -57,6 +63,12 @@ export class ProductosService {
     let headersToken = this.headersVariable.set('Authorization', token)
 
     return this._http.put(this.url+'/cancelarPedido/'+id, "", {headers: headersToken})
+  }
+
+  confirmarPedido(id: String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.put(this.url+'/confirmarEntrega/'+id, "", {headers: headersToken})
   }
 
 
