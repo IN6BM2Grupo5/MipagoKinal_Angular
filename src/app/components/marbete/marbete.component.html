@@ -25,11 +25,13 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Modelo del vehículo:</h6>
-                    <p class="text-muted">Bombolbi</p>
+                    <p *ngIf="identidad.marbete[0].modelo!=''"  class="text-muted">{{identidad.marbete[0].modelo}} </p>
+                    <p *ngIf="identidad.marbete[0].modelo==''" class="text-muted">vehiculo no registrado</p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>No. de Placa:</h6>
-                    <p class="text-muted">JADH234</p>
+                    <p *ngIf="identidad.marbete[0].placas!=''" class="text-muted">{{identidad.marbete[0].placas}} </p>
+                    <p *ngIf="identidad.marbete[0].placas==''" class="text-muted">vehiculo no registrado</p>
                   </div>
                 </div><br>
                 <h6>Opciones</h6>

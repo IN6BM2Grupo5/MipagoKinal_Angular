@@ -12,22 +12,18 @@ import Swal from 'sweetalert2';
 export class MarbeteComponent implements OnInit {
   public UsuariosModelGet: usuarios;
   public identidad;
-  constructor(private _UsuariosService: UsuariosService) {
-    this.identidad = this._UsuariosService.obtenerIdentidad();
-   }
+  constructor(private _UsuariosService: UsuariosService) {   }
 
   ngOnInit(): void {
-    this.identidad.correo = this.identidad.correo.replace("@kinal.edu.gt", "")
-
-    this.getMarbete()
+    this.getIdentidad()
   }
 
-  getMarbete(){
-    this._UsuariosService.obtenerMarbete(this._UsuariosService.obtenerToken()).subscribe(
+  getIdentidad() {
+    this._UsuariosService.obtenerAlumnoId(this._UsuariosService.obtenerIdentidad()._id, this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
-          this.UsuariosModelGet = response.marbete;
-
-          console.log(this.UsuariosModelGet)
+          this.identidad = response.usuario;
+          this.identidad.correo = this.identidad.correo.replace("@kinal.edu.gt", "")
+          console.log(response.usuario);
       },
       (error) => {
         Swal.fire({

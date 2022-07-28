@@ -29,14 +29,31 @@ export class UsuarioCafeteriaComponent implements OnInit {
       "",
       ""
     )
-    this.identidad = this._UsuariosService.obtenerIdentidad();
   }
 
   ngOnInit(): void {
     this.getProductos()
   }
 
+  getIdentidad() {
+    this._UsuariosService.obtenerAlumnoId(this._UsuariosService.obtenerIdentidad()._id, this._UsuariosService.obtenerToken()).subscribe(
+      (response) => {
+          this.identidad = response.usuario;
+
+          console.log(response.usuario)
+      },
+      (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
   getProductos(){
+    this.getIdentidad()
     this._ProductosService.obtenerProductosCafeteria(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
           this.ProductosModelGet = response.productos;
@@ -58,6 +75,7 @@ export class UsuarioCafeteriaComponent implements OnInit {
     console.log(this.pedidosModel)
     this._ProductosService.agregarPedido(this.pedidosModel, this._UsuariosService.obtenerToken()).subscribe(
       (response)=>{
+        this.getProductos()
         pedirForm.reset()
         Swal.fire({
           icon: 'success',
@@ -68,6 +86,8 @@ export class UsuarioCafeteriaComponent implements OnInit {
       (error)=>{
         Swal.fire({
           icon: 'error',
+          imageUrl: '../../../assets/img/delorean.png',
+          imageHeight: 150,
           title: 'Oops...',
           text: error.error.mensaje
         })

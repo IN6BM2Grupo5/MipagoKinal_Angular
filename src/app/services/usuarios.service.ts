@@ -67,6 +67,12 @@ export class UsuariosService {
     return this._http.get(this.url + '/alumnosPorCarnet/'+carnet, { headers: headersToken })
   }
 
+  obtenerAlumnoId(id: String, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.get(this.url + '/usuarioPorId/'+id, { headers: headersToken })
+  }
+
   obtenerAlumnos(token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token)
 
