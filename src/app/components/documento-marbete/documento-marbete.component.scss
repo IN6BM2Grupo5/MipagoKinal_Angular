@@ -35,6 +35,11 @@ body{
   display: flex;
 }
 
+.imagen:hover {
+  transform: scale(1.2);
+  transition: all 0.3s;
+}
+
 .cuadrado {
   width: 250px;
   height: 270px;

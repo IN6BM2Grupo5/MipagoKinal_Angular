@@ -26,12 +26,17 @@
                   <div class="col-6 mb-3">
                     <h6>Modelo del vehículo:</h6>
                     <p *ngIf="identidad.marbete[0].modelo!=''"  class="text-muted">{{identidad.marbete[0].modelo}} </p>
-                    <p *ngIf="identidad.marbete[0].modelo==''" class="text-muted">vehiculo no registrado</p>
+                    <p *ngIf="identidad.marbete[0].modelo==''" class="text-muted">vehículo no registrado</p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>No. de Placa:</h6>
                     <p *ngIf="identidad.marbete[0].placas!=''" class="text-muted">{{identidad.marbete[0].placas}} </p>
-                    <p *ngIf="identidad.marbete[0].placas==''" class="text-muted">vehiculo no registrado</p>
+                    <p *ngIf="identidad.marbete[0].placas==''" class="text-muted">vehículo no registrado</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Tipo de vehiculo:</h6>
+                    <p *ngIf="identidad.marbete[0].placas!=''" class="text-muted">{{identidad.marbete[0].placas}} </p>
+                    <p *ngIf="identidad.marbete[0].placas==''" class="text-muted">vehículo no registrado</p>
                   </div>
                 </div><br>
                 <h6>Opciones</h6>
@@ -93,6 +98,14 @@
       </div>
       <div class="modal-body">
         <form>
+          <div class="mb-3">
+            <label for="inputPlaca" class="form-label letras">Tipo de Vehículo</label>
+            <select class="form-select letras" aria-label="Default select example">
+              <option selected></option>
+              <option class="letras" value="1">Moto</option>
+              <option class="letras" value="2">Carro</option>
+            </select>
+          </div>
           <div class="mb-3">
             <label for="inputModelo" class="form-label letras">Modelo del Vehículo</label>
             <input type="text" class="form-control letras" id="inputModelo" name="modelo" #modelo=""  autocomplete="off" required>
