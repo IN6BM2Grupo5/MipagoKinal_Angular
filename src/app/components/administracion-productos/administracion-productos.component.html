@@ -99,9 +99,9 @@
           </div>
           <div class="mb-3">
             <label for="stock" class="form-label letras">Stock</label>
-            <select class="form-select" name="stock" [(ngModel)]="valorStock" (change)="valorStock = ($event.target.value);"  >
-              <option  value="Si">Si</option>
-              <option  value="No">No</option>
+            <select class="form-select letras" name="stock" [(ngModel)]="valorStock" (change)="valorStock = ($event.target.value);"  >
+              <option class="letras" value="Si">Si</option>
+              <option class="letras" value="No">No</option>
             </select>
           </div>
           <div class="mb-3" *ngIf="valorStock=='Si'">
@@ -139,16 +139,16 @@
           </div>
           <div class="mb-3">
             <label for="stock" class="form-label letras">Stock</label>
-            <select class="form-select" name="stock"  (change)="valorStockEditar = ($event.target.value);" [(ngModel)]="valorStockEditar" >
-              <option  value="Si">Si</option>
-              <option  value="No">No</option>
+            <select class="form-select letras" name="stock"  (change)="valorStockEditar = ($event.target.value);" [(ngModel)]="valorStockEditar" >
+              <option class="letras" value="Si">Si</option>
+              <option class="letras" value="No">No</option>
             </select>
           </div>
           <div class="mb-3" *ngIf="valorStockEditar=='No'" >
             <label for="estado" class="form-label letras">Estado</label>
-            <select class="form-select" name="estado" [(ngModel)]="ProductosModelPut.estado" >
-              <option  value="Disponible">Disponible</option>
-              <option  value="No Disponible">No Disponible</option>
+            <select class="form-select letras" name="estado" [(ngModel)]="ProductosModelPut.estado" >
+              <option class="letras" value="Disponible">Disponible</option>
+              <option class="letras" value="No Disponible">No Disponible</option>
             </select>
           </div>
           <div class="mb-3" *ngIf="valorStockEditar=='Si'">

@@ -50,8 +50,7 @@
           <table class="table table-primary table-striped">
             <thead>
               <tr>
-                <th scope="col" class="letras">#</th>
-                <th scope="col" class="letras">Nombres</th>
+                <th scope="col" class="letras margen-tabla">Nombres</th>
                 <th scope="col" class="letras">Apellidos</th>
                 <th scope="col" class="letras">Correo</th>
                 <th scope="col" class="letras">Tipo</th>
@@ -61,8 +60,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let usuario of UsuariosModelGet;">
-                <th scope="row" class="letras">1</th>
-                <td class="letras">{{usuario.nombres}}</td>
+                <td class="letras margen-tabla">{{usuario.nombres}}</td>
                 <td class="letras">{{usuario.apellidos}}</td>
                 <td class="letras">{{usuario.correo}}</td>
                 <td class="letras">{{usuario.rol}}</td>
@@ -126,8 +124,8 @@
           </div>
           <div class="mb-3">
             <label for="inputTipo" class="form-label letras">Tipo Administrador</label>
-            <select class="form-select" id="inputTipo letras"  [(ngModel)]="usuarioModel.rol" name="tipo" required>
-              <option *ngFor="let rol of roles" value="{{ rol.rol }}" >{{ rol.nombre }}</option>
+            <select class="form-select letras" id="inputTipo letras"  [(ngModel)]="usuarioModel.rol" name="tipo" required>
+              <option class="letras" *ngFor="let rol of roles" value="{{ rol.rol }}" >{{ rol.nombre }}</option>
             </select>
           </div>
           <br>
@@ -165,8 +163,8 @@
           </div>
           <div class="mb-3">
             <label for="inputTipo" class="form-label letras">Tipo Administrador</label>
-            <select class="form-select" id="inputTipo letras" name="tipo" [(ngModel)]="UsuariosModelPut.rol" required>
-              <option *ngFor="let rol of roles" value="{{ rol.rol }}" >{{ rol.nombre }}</option>
+            <select class="form-select letras" id="inputTipo letras" name="tipo" [(ngModel)]="UsuariosModelPut.rol" required>
+              <option class="letras" *ngFor="let rol of roles" value="{{ rol.rol }}" >{{ rol.nombre }}</option>
             </select>
           </div>
           <br>

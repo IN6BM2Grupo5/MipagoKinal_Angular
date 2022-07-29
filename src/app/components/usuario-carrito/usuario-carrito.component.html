@@ -48,8 +48,7 @@
           <table class="table table-primary table-striped">
             <thead>
               <tr>
-                <th scope="col" class="letras">#</th>
-                <th scope="col" class="letras">Producto</th>
+                <th scope="col" class="letras margen-tabla">Producto</th>
                 <th scope="col" class="letras">Cantidad</th>
                 <th scope="col" class="letras">Precio Individual</th>
                 <th scope="col" class="letras">Precio Total</th>
@@ -59,8 +58,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let pedido of pedidosModelGet; ">
-                <th scope="row" class="letras">1</th>
-                <td class="letras">{{pedido.producto}}</td>
+                <td class="letras margen-tabla">{{pedido.producto}}</td>
                 <td class="letras">{{pedido.cantidad}}</td>
                 <td class="letras">Q{{pedido.subTotal/pedido.cantidad | number: '1.2-2'}}</td>
                 <td class="letras">Q{{pedido.subTotal | number: '1.2-2'}}</td>

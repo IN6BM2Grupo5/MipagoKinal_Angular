@@ -46,8 +46,7 @@
           <table class="table table-primary table-striped">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col" class="letras">Carnet Alumno</th>
+                <th scope="col" class="letras margen-tabla">Carnet</th>
                 <th scope="col" class="letras">Nombre</th>
                 <th scope="col" class="letras">Apellido</th>
                 <th scope="col" class="letras">Fondos</th>
@@ -56,8 +55,7 @@
             </thead>
             <tbody>
               <tr  *ngFor="let usuario of UsuariosModelGet; ">
-                <th scope="row" class="letras">1</th>
-                <th class="letras">{{usuario.carnet}}</th>
+                <th class="letras margen-tabla">{{usuario.carnet}}</th>
                 <td class="letras">{{usuario.nombres}}</td>
                 <td class="letras">{{usuario.apellidos}}</td>
                 <td class="letras">Q{{usuario.cuentaCafeteria | number: '1.2-2'}}</td>

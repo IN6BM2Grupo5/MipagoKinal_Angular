@@ -45,8 +45,7 @@
           <table class="table table-primary table-striped">
             <thead>
               <tr>
-                <th scope="col" class="letras">#</th>
-                <th scope="col" class="letras">Carnet Alumno</th>
+                <th scope="col" class="letras margen-tabla">Carnet Alumno</th>
                 <th scope="col" class="letras">Producto</th>
                 <th scope="col" class="letras">Fecha Entrega</th>
                 <th scope="col" class="letras">Precio</th>
@@ -55,8 +54,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let pedido of pedidosModelGet; ">
-                <th scope="row" class="letras">1</th>
-                <td class="letras">{{pedido.carnet}}</td>
+                <td class="letras margen-tabla">{{pedido.carnet}}</td>
                 <td class="letras">{{pedido.producto}}</td>
                 <td class="letras">{{pedido.fechaPedido | date:'dd/MM/yy'}}</td>
                 <td class="letras">Q{{pedido.subTotal | number: '1.2-2'}}</td>

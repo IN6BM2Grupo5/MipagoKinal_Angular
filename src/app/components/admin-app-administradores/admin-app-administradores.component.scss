@@ -47,6 +47,7 @@ body{
   font-size: 20px;
   font-family: 'League Spartan', sans-serif;
   margin-right: 20px;
+  margin-bottom: 8px;
 }
 
 .boton:hover {
@@ -104,4 +105,8 @@ body{
 .fondo2{
   background-image: url(../../../assets/img/fondomodal.png);
   border-radius: 20px 20px 20px 20px;
+}
+
+.margen-tabla {
+  padding-left: 15px;
 }
