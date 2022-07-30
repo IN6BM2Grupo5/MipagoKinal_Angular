@@ -17,14 +17,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
 </head>
 <body>
   <app-navbar></app-navbar>
 
     <div class="contenedor">
         <div class="circulo"></div>
-        <a href="javascript:window.print()"><div class="imagen"></div></a>
+        <div (click)="printPage()" class="imagen"></div>
         <h1 class="titulo1">Marbete</h1>
         <div class="cuadrado">
             <h2>Mipago Kinal</h2>

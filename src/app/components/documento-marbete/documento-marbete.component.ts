@@ -12,4 +12,8 @@ export class DocumentoMarbeteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+    printPage() {
+    window.print()
+  }
+
 }
