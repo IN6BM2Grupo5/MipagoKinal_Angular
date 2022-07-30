@@ -19,9 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  <app-navbar></app-navbar>
 
-  <div id="marbete">
+  <div class="noImprimir">
+    <app-navbar></app-navbar>
+  </div>
+
+
     <div  class="contenedor">
       <div class="circulo"></div>
       <div (click)="printPage()" class="imagen"></div>
@@ -33,7 +36,6 @@
           <p>Fecha Inicio: {{identidad.marbete[0].fechaInicio | date:'dd/MM/yy'}}</p>
           <p>Fecha Fin: {{identidad.marbete[0].fechaFin | date:'dd/MM/yy'}}</p>
       </div>
-  </div>
   </div>
 
 </body>
