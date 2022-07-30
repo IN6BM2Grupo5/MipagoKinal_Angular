@@ -1,10 +1,39 @@
 *{
   font-family: 'League Spartan', sans-serif;
+  -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge */
+  color-adjust: exact !important;                 /*Firefox*/
 }
 
-body{
-  background-image: url(../../../assets/img/fondogeneral.png);
+@media screen {
+  body{
+    background-image: url(../../../assets/img/fondogeneral.png);
+  }
+
+  .circulo {
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-image: url(../../../assets/img/fondogeneral.png);
+    margin: 60px auto 30px auto;
+  }
 }
+
+@media print  and (max-width: 600px){
+  .circulo {
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: white;
+    margin: 60px auto 30px auto;
+  }
+
+
+}
+
 
 .contenedor {
   background-image: linear-gradient(to right, #014a97b9, #014a97c5), url(https://images.unsplash.com/photo-1555832438-e6ada221ff4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
@@ -15,15 +44,8 @@ body{
   padding: .1px;
 }
 
-.circulo {
-  width: 150px;
-  height: 150px;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  background-image: url(../../../assets/img/fondogeneral.png);
-  margin: 60px auto 30px auto;
-}
+
+
 
 .imagen {
   width: 150px;

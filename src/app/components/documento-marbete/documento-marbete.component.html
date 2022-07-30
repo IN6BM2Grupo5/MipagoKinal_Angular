@@ -27,10 +27,10 @@
         <h1 class="titulo1">Marbete</h1>
         <div class="cuadrado">
             <h2>Mipago Kinal</h2>
-            <p>Modelo: Cucarachita</p>
-            <p>Placa: FDFAFADF-48</p>
-            <p>Fecha Inicio: 22/07/2022</p>
-            <p>Fecha Fin: 28/07/2022</p>
+            <p>Modelo: {{identidad.marbete[0].modelo}}</p>
+            <p>Placa: {{identidad.marbete[0].placas}}</p>
+            <p>Fecha Inicio: {{identidad.marbete[0].fechaInicio | date:'dd/MM/yy'}}</p>
+            <p>Fecha Fin: {{identidad.marbete[0].fechaFin | date:'dd/MM/yy'}}</p>
         </div>
     </div>
 </body>
