@@ -51,11 +51,12 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Strikes:</h6>
-                    <p class="text-muted">0</p>
+                    <p class="text-muted">{{identidad.strikes}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Fecha de Baneo:</h6>
-                    <p class="text-muted">00/00/0000</p>
+                    <p *ngIf="identidad.fechaBaneo!=''"  class="text-muted">{{identidad.fechaBaneo | date:'dd/MM/yy'}}</p>
+                    <p *ngIf="identidad.fechaBaneo==''"  class="text-muted">Usted no esta baneado</p>
                   </div>
                 </div>
               </div>

@@ -12,7 +12,29 @@ import Swal from 'sweetalert2';
 export class MarbeteComponent implements OnInit {
   public UsuariosModelGet: usuarios;
   public identidad;
-  constructor(private _UsuariosService: UsuariosService) {   }
+  public UsuariosModelPut: usuarios;
+  constructor(private _UsuariosService: UsuariosService) {
+    this.UsuariosModelPut = new usuarios(
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      0,
+      0,
+      0,
+      "",
+      [{
+        vehiculo: "",
+        placas: "",
+        modelo:"",
+        fechaInicio: "",
+        fechaFin: ""
+      }]
+    )
+  }
 
   ngOnInit(): void {
     this.getIdentidad()
@@ -26,6 +48,28 @@ export class MarbeteComponent implements OnInit {
           console.log(response.usuario);
       },
       (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+  ingresarVehiculo(ingresarVehiculoForm){
+    this._UsuariosService.ingresarVehiculo(this.UsuariosModelPut, this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        this.getIdentidad()
+        console.log(response);
+        ingresarVehiculoForm.reset()
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "vehiculo ingresado exitosamente"
+        })
+      },
+      (error)=>{
         Swal.fire({
           icon: 'error',
           title: 'Oops...',

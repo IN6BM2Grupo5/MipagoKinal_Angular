@@ -28,6 +28,7 @@ export class UsuarioCarritoComponent implements OnInit {
             this.pedidosModelGet.push(response.pedidos[i])
           }
         }
+        this.pedidosModelGet.sort((a, b) => Date.parse(a.fechaPedido) - Date.parse(b.fechaPedido));
         this.getTotal()
         this.getIdentidad()
         console.log(this.pedidosModelGet)
