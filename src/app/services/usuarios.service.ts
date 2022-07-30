@@ -126,4 +126,10 @@ export class UsuariosService {
     return this._http.get(this.url + '/usuarioPorId/' + id, { headers: headersToken  })
   }
 
+
+  pedirMarbete(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token)
+
+    return this._http.post(this.url+'/pedirMarbete', "", {headers: headersToken})
+  }
 }

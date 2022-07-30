@@ -79,4 +79,24 @@ export class MarbeteComponent implements OnInit {
     )
   }
 
+  pedir(){
+    this._UsuariosService.pedirMarbete(this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "Marbete solicitado exitosamente"
+        })
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
+
+
 }

@@ -137,15 +137,21 @@
       <div class="modal-body image">
         <img class="image" src="../../../assets/img/marbete.png">
       </div>
-      <div class="modal-body texto">
-        Estás apunto de generar un marbete.
+      <div *ngIf="identidad.marbete[0].vehiculo == 'Moto'" class="modal-body texto">
+        Estás apunto de generar un marbete por Q60.00.
       </div>
-      <div class="modal-body texto2">
+      <div *ngIf="identidad.marbete[0].vehiculo == 'Carro'" class="modal-body texto">
+        Estás apunto de generar un marbete por Q120.00.
+      </div>
+      <div *ngIf="identidad.marbete[0].vehiculo == ''" class="modal-body texto">
+        No cuenta con un vehiculo
+      </div>
+      <div *ngIf="identidad.marbete[0].vehiculo != ''" class="modal-body texto2">
         ¿Estás seguro?
       </div>
-      <div class="modal-footer bajo">
+      <div class="modal-footer bajo" *ngIf="identidad.marbete[0].vehiculo != ''">
         <button type="button" class="btn btn-danger boton2" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary boton3">Confirmar</button>
+        <button type="button" (click)="pedir()" class="btn btn-primary boton3" data-bs-dismiss="modal">Confirmar</button>
       </div>
     </div>
   </div>

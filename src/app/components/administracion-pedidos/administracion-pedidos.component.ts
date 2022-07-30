@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { ProductosService } from 'src/app/services/productos.service';
 import Swal from 'sweetalert2';
-import { pedidos } from 'src/app/models/pedidos.model';
+
 @Component({
   selector: 'app-administracion-pedidos',
   templateUrl: './administracion-pedidos.component.html',
@@ -11,7 +11,7 @@ import { pedidos } from 'src/app/models/pedidos.model';
 })
 export class AdministracionPedidosComponent implements OnInit {
   public idPedido: String;
-  public pedidosModelGet: pedidos
+  public pedidosModelGet = []
   constructor(private _UsuariosService: UsuariosService, private _ProductosService: ProductosService) { }
 
   ngOnInit(): void {
@@ -21,7 +21,13 @@ export class AdministracionPedidosComponent implements OnInit {
   getPedidos(){
     this._ProductosService.obtenerPedidos(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
-        this.pedidosModelGet =  response.pedidos.sort((a, b) => Date.parse(a.fechaPedido) - Date.parse(b.fechaPedido));
+        this.pedidosModelGet = []
+        for(let i=0; i<response.pedidos.length; i++){
+          if(response.pedidos[i].producto != "Marbete"){
+            this.pedidosModelGet.push(response.pedidos[i])
+          }
+        }
+        this.pedidosModelGet.sort((a, b) => Date.parse(a.fechaPedido) - Date.parse(b.fechaPedido));
       },
       (error) => {
         Swal.fire({
@@ -37,8 +43,13 @@ export class AdministracionPedidosComponent implements OnInit {
     if(carnet){
       this._ProductosService.obtenerPedidosCarnet(carnet, this._UsuariosService.obtenerToken()).subscribe(
         (response) => {
-          console.log(response)
-            this.pedidosModelGet = response.pedidos;
+          this.pedidosModelGet = []
+          for(let i=0; i<response.pedidos.length; i++){
+            if(response.pedidos[i].producto != "Marbete"){
+              this.pedidosModelGet.push(response.pedidos[i])
+            }
+          }
+          this.pedidosModelGet.sort((a, b) => Date.parse(a.fechaPedido) - Date.parse(b.fechaPedido));
         },
         (error) => {
           this.getPedidos();

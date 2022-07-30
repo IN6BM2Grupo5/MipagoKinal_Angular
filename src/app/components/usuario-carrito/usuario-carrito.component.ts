@@ -24,7 +24,7 @@ export class UsuarioCarritoComponent implements OnInit {
     this._ProductosService.obtenerPedidos(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
         for(let i=0; i<response.pedidos.length; i++){
-          if(response.pedidos[i].tipo == "Secretaria"){
+          if(response.pedidos[i].tipo == "Secretaria" && response.pedidos[i].producto != "Marbete"){
             this.pedidosModelGet.push(response.pedidos[i])
           }
         }
