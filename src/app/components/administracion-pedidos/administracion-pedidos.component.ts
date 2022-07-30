@@ -21,7 +21,7 @@ export class AdministracionPedidosComponent implements OnInit {
   getPedidos(){
     this._ProductosService.obtenerPedidos(this._UsuariosService.obtenerToken()).subscribe(
       (response) => {
-        this.pedidosModelGet = response.pedidos;
+        this.pedidosModelGet =  response.pedidos.sort((a, b) => Date.parse(a.fechaPedido) - Date.parse(b.fechaPedido));
       },
       (error) => {
         Swal.fire({
