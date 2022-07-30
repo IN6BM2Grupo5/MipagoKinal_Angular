@@ -21,17 +21,20 @@
 <body>
   <app-navbar></app-navbar>
 
-    <div class="contenedor">
-        <div class="circulo"></div>
-        <div (click)="printPage()" class="imagen"></div>
-        <h1 class="titulo1">Marbete</h1>
-        <div class="cuadrado">
-            <h2>Mipago Kinal</h2>
-            <p>Modelo: {{identidad.marbete[0].modelo}}</p>
-            <p>Placa: {{identidad.marbete[0].placas}}</p>
-            <p>Fecha Inicio: {{identidad.marbete[0].fechaInicio | date:'dd/MM/yy'}}</p>
-            <p>Fecha Fin: {{identidad.marbete[0].fechaFin | date:'dd/MM/yy'}}</p>
-        </div>
-    </div>
+  <div id="marbete">
+    <div  class="contenedor">
+      <div class="circulo"></div>
+      <div (click)="printPage()" class="imagen"></div>
+      <h1 class="titulo1">Marbete</h1>
+      <div class="cuadrado">
+          <h2>Mipago Kinal</h2>
+          <p>Modelo: {{identidad.marbete[0].modelo}}</p>
+          <p>Placa: {{identidad.marbete[0].placas}}</p>
+          <p>Fecha Inicio: {{identidad.marbete[0].fechaInicio | date:'dd/MM/yy'}}</p>
+          <p>Fecha Fin: {{identidad.marbete[0].fechaFin | date:'dd/MM/yy'}}</p>
+      </div>
+  </div>
+  </div>
+
 </body>
 </html>
