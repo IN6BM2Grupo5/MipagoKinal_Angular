@@ -49,6 +49,7 @@
                 <th scope="col" class="letras">Producto</th>
                 <th scope="col" class="letras">Fecha Entrega</th>
                 <th scope="col" class="letras">Precio</th>
+                <th scope="col" class="letras">Negarlo</th>
                 <th scope="col" class="letras">Estado</th>
               </tr>
             </thead>
@@ -58,6 +59,13 @@
                 <td class="letras">{{pedido.producto}}</td>
                 <td class="letras">{{pedido.fechaPedido | date:'dd/MM/yy'}}</td>
                 <td class="letras">Q{{pedido.subTotal | number: '1.2-2'}}</td>
+                <td>
+                  <button type="button" (click)="this.idPedido=pedido._id" class="btn btn-danger letras" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                    </svg> Negar
+                  </button>
+                </td>
                 <td>
                   <button type="button" (click)="confirmar(pedido._id)" class="btn btn-primary letras">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
@@ -80,5 +88,27 @@
   </div>
   <!-- Copyright -->
 </footer>
-
+<!-- Modal cancelacion del pedido-->
+<div class="modal fade" id="modalConfirmar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content fondo2">
+      <div class="modal-header encabezado">
+        <h5 class="modal-title titulo" ><svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-exclamation-octagon-fill" viewBox="0 0 16 16">
+          <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </svg> Atención</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body image">
+        <img class="image" src="../../../assets/img/eliminar.png">
+      </div>
+      <div class="modal-body texto">
+        ¿Quieres negar la solicitud del pedido?
+      </div>
+      <div class="modal-footer bajo">
+        <button type="button" class="btn btn-danger boton2" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" (click)="cancelar(idPedido)" data-bs-dismiss="modal" class="btn btn-primary boton3">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

@@ -70,4 +70,24 @@ export class CafeteriaPedidosComponent implements OnInit {
       }
     )
   }
+
+  cancelar(id){
+    this._ProductosService.cancelarPedido(id , this._UsuariosService.obtenerToken()).subscribe(
+      (response)=>{
+        this.getPedidos()
+        Swal.fire({
+          icon: 'success',
+          title: 'Operación exitosa',
+          text: "Pedido cancelado exitosamente"
+        })
+      },
+      (error)=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.error.mensaje
+        })
+      }
+    )
+  }
 }
