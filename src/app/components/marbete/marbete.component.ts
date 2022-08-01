@@ -45,6 +45,7 @@ export class MarbeteComponent implements OnInit {
       (response) => {
           this.identidad = response.usuario;
           this.identidad.correo = this.identidad.correo.replace("@kinal.edu.gt", "")
+          this.UsuariosModelPut = response.usuario;
           console.log(response.usuario);
       },
       (error) => {
